@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Шаблон для отдельного проекта</title>
+	<meta charset="UTF-8">
+</head>
+<body>
+<h1>Подробная информация о проекте</h1>
+<h3>Проект {{ object.id }}</h3>
+<p>{{ object.title }}</p>
+<br>
+<ul>
+{% for tag in object.tags.all %}
+<li>{{ tag }}</li>
+{% endfor %}
+</ul>
+<em>{{ object.description }}</em>
+</body>
