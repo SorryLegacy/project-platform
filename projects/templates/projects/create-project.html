@@ -1,0 +1,6 @@
+<h1>Информация о проекте</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" name="" value="Добавить проект">
+</form>
