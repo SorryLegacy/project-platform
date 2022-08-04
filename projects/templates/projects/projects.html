@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<title>Шаблон для вывода проектов</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Новая запись{% endblock %}
+{% block content %}
 <h2>Здесь будут все проекты</h2>
 {% for project in object_list %}
 <p>Номер проекта: #{{ project.id }}</p>
 <h3>Название проекта: <a href="{% url 'project' project.id %}">{{ project.title }}</a></h3>
 <em>{{ project.description }}</em>
-<p><strong><h3>Обновить проект: <a href="{% url 'update-project' project.id %}">Обновить</a></h3></strong></p>
+<p><h3>Обновить проект: <a href="{% url 'update-project' project.id %}">Обновить</a></h3></p>
 <p><h3>Удалить проект: <a href="{% url 'delete-project' project.id %}">Удалить</a></h3></p>
 {% endfor %}
-<p><strong><h3>Создать новый проект: <a href="{% url 'create-project' %}">Создать проект</a></h3></strong></p>
-</body>
-</html>
+<p><h3>Создать новый проект: <a href="{% url 'create-project' %}">Создать проект</a></h3></p>
+{% endblock %}

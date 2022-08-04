@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-	<title>Шаблон для отдельного проекта</title>
-	<meta charset="UTF-8">
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}{{ object.title }}{% endblock %}
+{% block content %}
 <h1>Подробная информация о проекте</h1>
 <h3>Проект {{ object.id }}</h3>
 <p>{{ object.title }}</p>
@@ -15,5 +11,8 @@
 {% endfor %}
 </ul>
 <em>{{ object.description }}</em>
-</body>
-</html>
+
+<p><a href="{% url 'projects' %}">
+    <button>На главную</button>
+</a></p>
+{% endblock %}

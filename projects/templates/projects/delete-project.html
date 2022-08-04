@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block title %}Новая запись{% endblock %}
+{% block content %}
   <h1>Удаление проекта</h1>
   <form method="post">
     {% csrf_token %}
     <p>Удалить {{project.title}}?</p>
     <input type="submit" value="Удалить">
   </form>
-</body>
-</html>
+{% endblock %}
