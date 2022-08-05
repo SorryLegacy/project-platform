@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Профиль {{ object.username }} {% endblock %}
+{% block content %}
+<h1> {{ object.username }}</h1>
+  <div>
+    <p>Обо мне:</p>
+      <p> {{ object.bio }}</p>
+    <table>
+      {% for skill in skills %}
+          <tr>
+            <td>
+              <h4>{{skill.name}}</h4>
+              <p>
+                {{skill.description}}
+              </p>
+            </td>
+          </tr>
+      {%endfor%}
+    </table>
+  </div>
+{% endblock %}

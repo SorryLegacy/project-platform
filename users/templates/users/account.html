@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Мой аккаунт {% endblock %}
+{% block content %}
+<h1> {{ object_list.username }} </h1>
+<div>
+  <p>
+    email:{{ object_list.email}}
+  </p>
+</div>
+{% endblock %}

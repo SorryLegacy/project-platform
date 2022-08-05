@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+            <div>Signup</div>
+            <div>
+
+              {% for error in form.errors %}
+                  <div>
+                      {{ error|escape }}
+                  </div>
+                {% endfor %}
+
+                <form method="post" action="{% url 'signup' %}">
+                    {% csrf_token %}
+                        {{ form.as_p }}
+
+                    <div>
+                            <button type="submit">
+                                Signup
+                            </button>
+                    </div>
+
+{% endblock %}

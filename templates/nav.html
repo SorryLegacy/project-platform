@@ -1,0 +1,14 @@
+<nav>
+  {% if user.is_authenticated %}
+  Пользователь: {{ user.username }}
+  <p><a href="{% url 'account' %}">Мой профиль</a></p>
+  <p><a href="{% url 'profiles' %}">Разработчики</a></p>
+  <p><a href="{% url 'projects' %}">Все проекты</a></p>
+  <p><a href="{% url 'logout' %}">Выйти из аккаунта</a></p>
+  {% else %}
+  <p><a href="{% url 'profiles' %}">Разработчики</a></p>
+  <p><a href="{% url 'projects' %}">Все проекты</a></p>
+  <p><a href="{% url 'signup' %}">Регистрация</a></p>
+  <p><a href="{% url 'login' %}">Логин</a></p>
+  {% endif %}
+</nav>

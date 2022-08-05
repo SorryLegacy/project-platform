@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Профили {% endblock %}
+{% block content %}
+{% for profile in object_list %}
+    <h2> <a href="{% url 'single-profile' profile.id %}">{{ profile.username }}<a/></h2>
+    <div>
+        <p> {{ profile.bio }} </p>
+    </div>
+    <div>
+        {% for skill in object_list.skill.all %}
+            <p> skill </p>
+        {% endfor %}
+    </div>
+{% endfor %}
+{% endblock %}
