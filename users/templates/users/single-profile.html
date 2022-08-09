@@ -6,16 +6,9 @@
     <p>Обо мне:</p>
       <p> {{ object.bio }}</p>
     <table>
-      {% for skill in skills %}
-          <tr>
-            <td>
-              <h4>{{skill.name}}</h4>
-              <p>
-                {{skill.description}}
-              </p>
-            </td>
-          </tr>
-      {%endfor%}
+      {% for skil in object.skill.all %}
+          <li>{{ skil }}</li>
+      {% endfor %}
     </table>
   </div>
 {% endblock %}

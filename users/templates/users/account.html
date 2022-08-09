@@ -4,7 +4,27 @@
 <h1> {{ object_list.username }} </h1>
 <div>
   <p>
-    email:{{ object_list.email}}
+    email: {{ object_list.email }}
+    city: {{ object_list.city }}
+  </p>
+  <p>
+    City: {{ object_list.city }}
+  </p>
+  <p>
+
+     {% for skil in  object_list.skills.all %}
+      <h1>{{ skil }}</h1>
+    {% endfor %}
+       <p>
+          <a href="{% url 'create-skill' %}">Создать навык</a>
+       </p>
+
+  </p>
+  <p>
+    <a href="{% url 'update-account' object_list.id %}"> Редактировать</a>
+  </p>
+  <p>
+    <a href="{% url 'delete-account' object_list.id %}"> Удалить</a>
   </p>
 </div>
 {% endblock %}
