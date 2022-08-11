@@ -19,13 +19,13 @@ class Skill(models.Model):
 
 class Profile(models.Model):
     """"""
-    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='User')
+    user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='User', null=True, blank=True)
     username = models.CharField(max_length=50, verbose_name='Username')
     name = models.CharField(max_length=30, verbose_name='Name', null=True, blank=True)
     email = models.EmailField(max_length=100, verbose_name='User email', null=True, blank=True)
     city = models.CharField(max_length=50, verbose_name='City')
     bio = models.TextField(blank=True, null=True, verbose_name='Bio')
-    skill = models.ManyToManyField(Skill, blank=True, verbose_name='Skills')
+    hard_skill = models.ManyToManyField(Skill, blank=True, verbose_name='Skills')
     created = models.DateTimeField(auto_now_add=True, verbose_name='Created date')
     id = models.UUIDField(default=uuid.uuid4, unique=True,
                           primary_key=True, editable=False, verbose_name='ID')

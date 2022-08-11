@@ -5,15 +5,16 @@
 <div>
   <p>
     email: {{ object_list.email }}
-    city: {{ object_list.city }}
   </p>
   <p>
     City: {{ object_list.city }}
   </p>
   <p>
 
-     {% for skil in  object_list.skills.all %}
-      <h1>{{ skil }}</h1>
+     {% for skill in  object_list.hard_skill.all %}
+
+      <h1>{{ skill.name }}</h1>
+
     {% endfor %}
        <p>
           <a href="{% url 'create-skill' %}">Создать навык</a>

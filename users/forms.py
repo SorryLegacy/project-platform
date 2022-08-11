@@ -14,7 +14,7 @@ class ProfileForm(ModelForm):
     class Meta:
         model = Profile
         fields = ['name', 'email', 'username',
-                  'city', 'bio']
+                  'city', 'hard_skill', 'bio']
 
 
 class SkillForm(ModelForm):
