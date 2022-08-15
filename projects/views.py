@@ -1,7 +1,11 @@
-from .models import Project
-from .forms import ProjectForm
+from rest_framework import generics
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, ListView, CreateView, UpdateView, DeleteView
+
+
+from .models import Project
+from .forms import ProjectForm
+from .serializers import ProjectSerializer
 
 
 class ProjectView(ListView):
@@ -36,3 +40,16 @@ class DeleteProject(DeleteView):
     model = Project
     template_name = 'projects/delete-project.html'
     success_url = reverse_lazy('projects')
+
+
+class ProjectGetPost(generics.ListCreateAPIView):
+    """API for GET and POST methods"""
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+    lookup_field = ('id', )
+
+
+class SingleProjectAPI(generics.RetrieveUpdateDestroyAPIView):
+    """API for PUT, PATCH, DELETE methods"""
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
