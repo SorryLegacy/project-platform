@@ -1,9 +1,11 @@
+from users.models import Profile
+
 from django.db import models
 import uuid
 
 
 class Tag(models.Model):
-    """Model for add tag with hardskill"""
+    """Model for add tag with hard-skill"""
     name = models.CharField(max_length=100, verbose_name='Tag name')
     slug = models.SlugField(verbose_name='Slug field')
     created = models.DateTimeField(verbose_name='Created date',auto_now_add=True)
@@ -15,6 +17,7 @@ class Tag(models.Model):
 
 class Project(models.Model):
     """Model of project"""
+    create_by = models.ForeignKey(Profile, on_delete=models.CASCADE, blank=True, null=True, verbose_name='User project')
     title = models.CharField(verbose_name='Project title', max_length=100)
     slug = models.SlugField(verbose_name='Slug field')
     description = models.TextField(verbose_name='Project description ', null=True, blank=True)

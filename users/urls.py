@@ -11,5 +11,7 @@ urlpatterns = [
     path('account/delete/<str:pk>/', views.DeleteAccount.as_view(), name='delete-account'),
     path('skill/create-skill/', views.CreateSkill.as_view(), name='create-skill'),
     path('skill/update-skill/<slug:slug>/', views.UpdateSkill.as_view(), name='update-skill'),
-    path('skill/delete-skill/<slug:slug>/', views.DeleteSkill.as_view(), name='delete-skill')
+    path('skill/delete-skill/<slug:slug>/', views.DeleteSkill.as_view(), name='delete-skill'),
+    path('api/v1/profiles/', views.ProfileGetPost.as_view(), name='get-post-api',),
+    path('api/v1/profile/<str:pk>/single/', views.ProfileUpdateDeleteRetrieve.as_view(), name='put-patch-delete-api'),
 ]

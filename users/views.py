@@ -1,7 +1,11 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from django.views.generic import DetailView, ListView, UpdateView, CreateView, DeleteView
+
+
 from .models import User, Profile, Skill
+from .seralizers import ProfileSerializer
 from .forms import UserForm, ProfileForm, SkillForm
 
 
@@ -18,7 +22,7 @@ class ProfileView(DetailView):
 
 
 class AccountView(LoginRequiredMixin, ListView):
-    """view for user who want to see his profile"""
+    """View for user who want to see his profile"""
     model = Profile
     template_name = 'users/account.html'
 
@@ -65,7 +69,19 @@ class DeleteSkill(LoginRequiredMixin, DeleteView):
 
 
 class SignUp(CreateView):
-    """Class for sign up people"""
+    """View for sign up people"""
     form_class = UserForm
     success_url = reverse_lazy('login')
     template_name = 'users/signup.html'
+
+
+class ProfileGetPost(ListCreateAPIView):
+    """API for POST and Get request to Profile"""
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
+
+
+class ProfileUpdateDeleteRetrieve(RetrieveUpdateDestroyAPIView):
+    """API for PUT, PATCH and DELETE request to Profile"""
+    queryset = Profile.objects.all()
+    serializer_class = ProfileSerializer
