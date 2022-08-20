@@ -6,7 +6,7 @@ User = get_user_model()
 
 
 class Skill(models.Model):
-    """"""
+    """Model about hard_skill that the user have """
     name = models.CharField(max_length=50, blank=True, null=True, verbose_name='Skills name')
     slug = models.SlugField(verbose_name='Slug')
     description = models.TextField(null=True, blank=True, verbose_name='Description')
@@ -18,7 +18,7 @@ class Skill(models.Model):
 
 
 class Profile(models.Model):
-    """"""
+    """Model to see some info about user"""
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='User', null=True, blank=True)
     username = models.CharField(max_length=50, verbose_name='Username')
     name = models.CharField(max_length=30, verbose_name='Name', null=True, blank=True)
